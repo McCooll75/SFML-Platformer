@@ -9,9 +9,10 @@ sf::Sprite body;
 sf::Vector2f velocity;
 
 public:
-    Player(sf::Vector2f);
+    Player();
     ~Player();
 
+    void setPosition(sf::Vector2f);
     bool isOnFloor();
     void control();
     void gravity();

@@ -5,18 +5,20 @@ constexpr float WALK_SPEED = 1;
 constexpr float GRAVITY_FORCE = 0.01;
 constexpr float JUMP_FORCE = 1;
 
-Player::Player(sf::Vector2f startPosition) {
+Player::Player() {
     texture.loadFromFile("assets/player-sheet.png");
     body.setTexture(texture);
     body.setTextureRect(sf::IntRect(0, 0, TEXTURE_SIZE, TEXTURE_SIZE));
 
     set_tile_size(body);
-
-    body.setPosition(startPosition);
 }
 
 Player::~Player() {
 
+}
+
+void Player::setPosition(sf::Vector2f newPosition){
+    body.setPosition(newPosition);
 }
 
 bool Player::isOnFloor(){
@@ -47,6 +49,5 @@ void Player::gravity(){
 
 void Player::move(float& time){
     body.move(velocity.x * time, velocity.y * time);
-    cout << time << endl;
     velocity.x = 0;
 }
