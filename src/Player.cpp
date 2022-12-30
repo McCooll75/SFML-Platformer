@@ -2,7 +2,7 @@
 #include "Global.hpp"
 
 constexpr float WALK_SPEED = 1;
-constexpr float GRAVITY_FORCE = 0.01;
+constexpr float GRAVITY_FORCE = 0.001;
 constexpr float JUMP_FORCE = 1;
 
 Player::Player() {

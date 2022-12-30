@@ -11,15 +11,7 @@ void set_tile_size(sf::Sprite& body){
 
 int main()
 {
-    sf::RenderWindow window(sf::VideoMode(400, 300), "SFML works!", sf::Style::Close);
-
-    // wall texture and sprite
-    sf::Texture wallTexture;
-    wallTexture.loadFromFile("assets/wall.png");
-
-    sf::Sprite wallTile;
-    wallTile.setTexture(wallTexture);
-    set_tile_size(wallTile);
+    sf::RenderWindow window(sf::VideoMode(400, 280), "SFML works!", sf::Style::Close);
 
     // player and level
     Player player;
@@ -42,13 +34,7 @@ int main()
 
         window.clear();
 
-        for (unsigned x = 0; x < MAP_WI; x++)
-        for (unsigned y = 0; y < MAP_HE; y++){
-            if(level.map[y][x] == Tile::Wall){
-                wallTile.setPosition(sf::Vector2f(x * TILE_SIZE, y * TILE_SIZE));
-                window.draw(wallTile);
-            }
-        }
+        level.drawMap(window);
 
         player.drawBody(window);
         player.control();
